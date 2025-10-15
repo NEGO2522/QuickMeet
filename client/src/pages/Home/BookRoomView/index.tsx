@@ -400,13 +400,39 @@ export default function BookRoomView({ onRoomBooked }: BookRoomViewProps) {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'space-between',
                 my: 2,
               }}
             >
-              <Checkbox checked={formData.conference} value={formData.conference} onChange={(e) => handleInputChange('conference', e.target.checked)} />
-              <Typography variant="subtitle1" ml={0.5}>
-                Create meet link
-              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Checkbox 
+                  checked={formData.conference} 
+                  value={formData.conference} 
+                  onChange={(e) => handleInputChange('conference', e.target.checked)} 
+                />
+                <Typography variant="subtitle1" ml={0.5}>
+                  Create meet link
+                </Typography>
+              </Box>
+              <LoadingButton
+                variant="text"
+                color="error"
+                size="small"
+                onClick={() => {
+                  // TODO: Implement end meeting functionality
+                  console.log('End Meeting clicked');
+                }}
+                sx={{
+                  textTransform: 'none',
+                  fontWeight: 500,
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    textDecoration: 'underline',
+                  },
+                }}
+              >
+                End Meeting
+              </LoadingButton>
             </Box>
           </Box>
         </Box>
